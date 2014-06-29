@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.gnosis.jacman.editor.gui;
 
