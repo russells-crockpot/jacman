@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="/home/Brendan/JacMan/JacMan.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/JacMan/description.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/JacMan/manifest" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=JacMan/src&lt;engine"/>
+        <javaElement handleIdentifier="=JacMan/src&lt;engine.items"/>
+        <javaElement handleIdentifier="=JacMan/src&lt;ann.exceptions"/>
+        <javaElement handleIdentifier="=JacMan/src&lt;ann"/>
+        <javaElement handleIdentifier="=JacMan/src&lt;graphics"/>
+        <javaElement handleIdentifier="=JacMan/src&lt;ann.engine"/>
+        <file path="/JacMan/.classpath"/>
+        <file path="/JacMan/.DS_Store"/>
+        <file path="/JacMan/.project"/>
+    </selectedElements>
+</jardesc>

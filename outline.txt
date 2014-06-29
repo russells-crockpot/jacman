@@ -1,0 +1,71 @@
+Outline of ideas
+
+Each enemy has a nerve cluster of 4 neurons. the Neurons represent the following:
+0 | North
+1 | South
+2 | East
+3 | West
+The enemy should choose the direction that has the highest activation. If the
+enemy cannot move in that direction, then the next highest is chosen, et cetera.
+
+The ANN should be trained initially, but it should also be further trained through
+out the game. First there should be 2 constants: BIG_LEARNING_RATE (BLR) and
+SMALL_LEARNING_RATE (SLR). For each of these, there is one negative and on positive.
+A positive reinforces the current weights, and the negatives adjusts it towards a
+different direction.
+
+Positive:
+BLR | Kill player
+SLR | Get to the regen point
+
+Negative:
+BLR | Enemy dies
+SLR | Player gets power blip
+
+These allow the net to have weakly supervised learning. In the actual implementation, 
+since killing a player is rare, and an enemy dying is regular, a constant modifier
+may need to be used.
+Either way, the net should not count the current state of the board as the one to change,
+EG: if the enemy just killed the player, then we should not adjust the weights for the
+current board conditions.
+The reason for this is simple. Let us assume that an enemy just died. We want him to know
+that he shouldn't go towards the player. However, if we update the current state, then all
+it will teach him is that he should run away WHEN HE IS RIGHT NEXT TO THE PLAYER. This is
+obviously not what we want. Therefore, instead, in the actual implementation, we should
+adjust the net according to the past. Therefore, we need to keep and actual list of the
+previous states. This is best accomplished with a queue of a set size. That is, when we add
+a new item to the queue, if that item would put us above the set size, then we remove the
+first item.
+In the actual implementation of the game, we use a Queue of size 20. The logic behind this
+is once again rather simple. One tile back is not enough to teach the AI, because often,
+one tile back is a simple corridor (IE: NS or EW). Therefore we want it to be at least 2 
+tiles back. The way we get 20 is through what is considered bad programming practice in all
+things but game programming:
+
+The tile size is constant as 40 by 40.
+Similarly, the movement rate is constant at 4.
+Therefore, to traverse 1 tile, it takes 10 moves (tile size / movement rate).
+So, if we want 2 tiles back, it's that times 2.
+
+A new class is implemented instead of a derivation of the standard Queue class because we 
+need not worry about multithreading, and can therefore reduce a GREAT deal of the overhead.
+
+However, we are not done yet. If we always have our net use the same BLR or SLR, then our 
+net can never fine tune itself. That is, a constant learning rate may make our AI learn
+faster, but it will never learn very well. Therefore, we want a variable learning rate.
+However, the heuristic proposed by R. A. Jacobs (1988) will not do. In that version, the
+learning rate increased if the error ratio changed in the same direction for several epochs,
+and it decreased if it would decrease if it alternated for several epochs. 
+Right away there are several problems with this, first of all, with our model, we have no
+defined ideas of what an epoch is. Traditionally, an epoch is one iteration through a set
+of training data. However, here our training data isn't constant. We have no set number of
+cases that define an epoch, and therefore we cannot use this heuristic. Furthermore, even if
+we were able to, it would be unwise. With multi-layer networks (which is what we are using),
+this heuristic has a tendency to do one of 2 things: make the network learn a great deal faster
+or make the network unable to learn the data completely. However, it should be noted, that 
+while this heuristic has that tendency, since it is a heuristic, and not an algorithm, there is
+no one set way to do it, and therefore it is possible that this heuristic could be adapted for 
+our game. But such tweaking, while it could be fruitful, is, ultimately, unneeded.
+
+For our purposes, and the purposes of many games, simpiler is better. As ANN's imitate human
+brains, we can extend our ANN to learn as we know we do. When we learn the 

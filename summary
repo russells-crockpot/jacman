@@ -1,0 +1,4 @@
+	JacMan is not just a Pac-Man clone. While it uses the same form of AI that the original Pac-Man uses (a finite state machine), it also includes another form of AI: an artificial nueral network. The network can learn while using either the ANN its self of the FSM.
+	Unfortunately, the ANN learns very slowly, and is ill suited for a game as simple as Pac-Man. Ultimately, putting an ANN in any Pac-Man clone is useless (but entertaining).
+	This game follows many of the programming practices that professional game developers use. This, however, tends to go against many traditional programming practices. This being said, I have attempted to make it easy to add new Items, and new features.
+	Included is also a level editor. While there are two games hard-coded into the program itself, these are only used if a game file cannot be found.

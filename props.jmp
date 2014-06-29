@@ -1,0 +1,11 @@
+#Properties for JacMan
+#Tue Nov 22 22:06:19 MST 2011
+previous.game.path=C\:\\Users\\StMonkeyDOOM\\workspace\\JacMan\\Games\\game1.jmg
+training.lookahead=5
+key.binding.up=38
+key.binding.right=39
+key.binding.left=37
+key.binding.pause=32
+training.mode=after
+autosave=on
+key.binding.down=40

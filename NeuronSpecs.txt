@@ -1,0 +1,29 @@
+Neuron specs
+============================================================
+  | State
+============================================================
+00| 1 if hunter state 0 if hunted state
+============================================================
+  | Player move Options
+============================================================
+01| North
+02| South
+03| East
+04| West
+============================================================
+  | Player direction
+============================================================
+05| North
+06| South
+07| East
+08| West
+============================================================
+  | The next n neurons represent the player position. N=rows+
+  | columns. If the player is in row index 3, then the 3rd 
+  | neuron would have an activation of 1 and the rest would
+  | have an act of 0. Column index would be rows + 3.
+============================================================
+  | The next Neurons follow the same structure as above for
+  | each enemy, with the state condition replaced by 0 for
+  | alive, 1 for dead. and minus direction
+============================================================
