@@ -1,4 +1,6 @@
+*.swp
 *.class
+*~
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -8,5 +10,40 @@
 *.war
 *.ear
 
+target
+lib
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+.metadata
+.gradle
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# TeXlipse plugin
+.texlipse
+
+
